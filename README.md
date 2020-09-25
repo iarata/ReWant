@@ -8,11 +8,12 @@ Jobs list:
 
 
 ## - Todo List -
-- [ ] Create sections of the app: 1.Home, 2.Search, 3.Status, 4.Profile
+- [ ] Create sections of the app: 1.Home, 2.Search, 3.Maps, 4.Status, 5.Profile
 - [ ] UI of the app:
 	- [ ] Home - list of jobs UI
 		- [ ] Job details
 	- [ ] Search - search UI + pre-defined keywords UI
+	- [ ] Maps with pins of jobs locations
 	- [ ] Status of applied jobs UI
 		- [ ] Applied jobs
 		- [ ] Closed jobs
