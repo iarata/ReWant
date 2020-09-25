@@ -12,7 +12,7 @@ struct Home: View {
     
     // Search string to use in the search bar
     @State var searchString = ""
-    
+    @State private var allProjects = [Project]()
     
     
     var body: some View {
@@ -20,7 +20,12 @@ struct Home: View {
         // Search Navigation
         SearchNavigation(text: $searchString, search: searchKeyboardPressed, cancel: searchCancelPressed) {
             // Example SwiftUI View
-            Text("s")
+            
+            List(allProjects) { project in
+                Text(project.title)
+            }
+            .listStyle(GroupedListStyle())
+            .environment(\.horizontalSizeClass, .regular)
                 .navigationBarTitle("Home")
         }.edgesIgnoringSafeArea(.top)
         .onAppear {
@@ -28,9 +33,11 @@ struct Home: View {
             // FETCHING PROJECTS REQUEST
             fetchProjects(keyWord: "swift", page: 1) {
                 if $0 {
-                    $1.forEach { print($0.title) }
+//                    $1.forEach { print($0.title) }
+                    self.allProjects.append(contentsOf: $1)
                 }
             }
+            print(self.allProjects)
             
             
         }
